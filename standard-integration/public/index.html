@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <!-- Replace "test" with your own sandbox Business account app client ID -->
-    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
-    <!-- Set up a container element for the button -->
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="text/javascript" src="../inputReading.js"></script>
+  <link rel="stylesheet" href="../landingPage.css">
+</head>
+
+<body>
+  <!-- Replace "test" with your own sandbox Business account app client ID -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AXnWGKN1D0XmZos5eOxBQVdkibXTWUvqSflGbPqhs9-_CDD3sdr9swgmMzX5tF7D1JF5VwUY0x5bw5fz&currency=USD"></script>
+  <!-- Set up a container element for the button -->
+  <div id="Title">
+    <h1>Pickleball League Signup</h1>
+  </div>
+  <div id="summary">
+    <h2>Herriman Park Tournament</h2>
+    <p>Tournament will take place on dd/mm/yyyy at "location". There is a $5 sign up fee for each team. Enter your team
+      name and each player's name below</p>
+  </div>
+  <div id="team-info">
+    <form id="teamInfoForm">
+      <label for="TeamName">Team Name:</label>
+      <input type="text" id="TeamName" name="Team" placeholder="Team Name" required> <span class="validity"></span>
+      <div id="player-info">
+        <label for="PlayerOne">Team Member 1:</label>
+        <input type="text" id="PlayerOne" name="firstPlayer" placeholder="First and last name" required> <span
+          class="validity"></span>
+        <label for="PlayerTwo">Team Member 2:</label>
+        <input type="text" id="PlayerTwo" name="secondPlayer" placeholder="First and last name" required> <span
+          class="validity"></span>
+      </div>
+      <!--<button id="submitButton" onclick="trySubmit();">Submit</button> -->
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+  <div id="cart and checkout">
+    <div id="cart">
+      <h3 id="checkoutTeamName">TeamNameExample</h3>
+      <h4 id="checkoutFirstPlayer">FirstPlayerExample</h4>
+      <h4 id="checkoutSecondPlayer">SecondPlayerExample</h4>
+    </div>
     <div id="paypal-button-container"></div>
     <script>
       paypal
@@ -54,10 +90,10 @@
                 const transaction = orderData.purchase_units[0].payments.captures[0];
                 alert(
                   "Transaction " +
-                    transaction.status +
-                    ": " +
-                    transaction.id +
-                    "\n\nSee console for all available details"
+                  transaction.status +
+                  ": " +
+                  transaction.id +
+                  "\n\nSee console for all available details"
                 );
                 // When ready to go live, remove the alert and show a success message within this page. For example:
                 // var element = document.getElementById('paypal-button-container');
@@ -68,5 +104,8 @@
         })
         .render("#paypal-button-container");
     </script>
-  </body>
+  </div>
+
+</body>
+
 </html>
